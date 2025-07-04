@@ -67,3 +67,17 @@ export class GildedRose {
         return this.items;
     }
 }
+let agedBrie = new Item('Aged Brie', 10, 20);
+let sulfuras = new Item('Sulfuras', 10, 20);
+let backstagePasses = new Item('Backstage passes', 10, 20);
+let conjured = new Item('Conjured', 10, 20);
+
+let gildedRoseObj = new GildedRose([agedBrie, sulfuras, backstagePasses, conjured]);
+// console.log(items);
+for (let i = 0; i < 5; i++) {
+    gildedRoseObj.updateQuality();
+}
+for (let i = 0; i < 4; i++){
+    console.log(gildedRoseObj.items[i].name + " " + gildedRoseObj.items[i].sellIn + " " + gildedRoseObj.items[i].quality);
+}
+
