@@ -2,12 +2,12 @@ import { Item, GildedRose } from '../app/gilded-rose';
 import {expect} from "chai";
 
 // Add a master test here
-// let agedBrie = new Item('Aged Brie', 10, 20);
-// let sulfuras = new Item('Sulfuras', 10, 20);
-// let backstagePasses = new Item('Backstage passes', 10, 20);
-// let conjured = new Item('Conjured', 10, 20);
-//
-// let gildedRoseObj = new GildedRose([agedBrie, sulfuras, backstagePasses, conjured]);
+let agedBrie = new Item('Aged Brie', 10, 20);
+let sulfuras = new Item('Sulfuras', 10, 20);
+let backstagePasses = new Item('Backstage passes', 10, 20);
+let conjured = new Item('Conjured', 10, 20);
+
+let gildedRoseObj = new GildedRose([agedBrie, sulfuras, backstagePasses, conjured]);
 // for (let i = 0; i < 5; i++) {
 //     gildedRoseObj.updateQuality();
 // }
