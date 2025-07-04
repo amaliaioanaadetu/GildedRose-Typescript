@@ -77,7 +77,7 @@ let gildedRoseObj = new GildedRose([agedBrie, sulfuras, backstagePasses, conjure
 for (let i = 0; i < 5; i++) {
     gildedRoseObj.updateQuality();
 }
-for (let i = 0; i < 4; i++){
-    console.log(gildedRoseObj.items[i].name + " " + gildedRoseObj.items[i].sellIn + " " + gildedRoseObj.items[i].quality);
-}
+// for (let i = 0; i < 4; i++){
+//     console.log(gildedRoseObj.items[i].name + " " + gildedRoseObj.items[i].sellIn + " " + gildedRoseObj.items[i].quality);
+// }
 
