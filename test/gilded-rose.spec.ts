@@ -116,21 +116,6 @@ describe('Negative Quality', function () {
 
 });
 
-describe('SellIn passed for concert', function () {
-
-    it('backstage passes have quality 0 if sellIn passes', function() {
-        // const item = new Item('Backstage passes', 10, 20);
-        const backstagePasses = new Item('Backstage passes to a TAFKAL80ETC concert', 0, 20)
-        const backstageObj = new GildedRose([backstagePasses])
-        backstageObj.updateQuality();
-        // let qualityTomorrow: number = backstagePasses.quality;
-
-
-        expect(backstagePasses.quality).to.equal(0);
-    });
-
-});
-
 
 describe('SellIn passed for concert', function () {
 
@@ -171,6 +156,35 @@ describe('Quality Aged Brie', function () {
         agedbrieObj.updateQuality();
 
         expect(agedBrie.quality - qualityYesterday).to.equal(2);
+    });
+
+});
+
+
+describe('Conjured for Negative SellIn', function () {
+
+    it('Conjured for negative sellIn', function() {
+        // const item = new Item('Backstage passes', 10, 20);
+        const conjured = new Item('Conjured', -5, 20)
+        const conjuredObj = new GildedRose([conjured])
+        let qualityYesterday:number = conjured.quality;
+        conjuredObj.updateQuality();
+
+        expect(conjured.quality - qualityYesterday).to.equal(-4);
+    });
+
+});
+
+describe('Bckstage passes over 50', function () {
+
+    it('Bckstage passes with quality over 50 after sellIn', function() {
+        // const item = new Item('Backstage passes', 10, 20);
+        const bckstage = new Item('Backstage passes to a TAFKAL80ETC concert', 0, 60)
+        const backstageObj = new GildedRose([bckstage])
+        let qualityYesterday:number = bckstage.quality;
+        backstageObj.updateQuality();
+
+        expect(bckstage.quality).to.equal(0);
     });
 
 });
