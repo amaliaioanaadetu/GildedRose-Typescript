@@ -64,7 +64,7 @@ describe('Conjured', function () {
         for (let i = 0; i < 5; i++){
             conjuredObj.updateQuality()
         }
-        expect(conjured.quality).to.equal(15);
+        expect(conjured.quality).to.equal(10);
     });
 
 });
@@ -175,7 +175,21 @@ describe('Conjured for Negative SellIn', function () {
 
 });
 
-describe('Bckstage passes over 50', function () {
+describe('Conjured for Positive SellIn', function () {
+
+    it('Conjured step for positive sellIn', function() {
+        // const item = new Item('Backstage passes', 10, 20);
+        const conjured = new Item('Conjured', 5, 20)
+        const conjuredObj = new GildedRose([conjured])
+        let qualityYesterday:number = conjured.quality;
+        conjuredObj.updateQuality();
+
+        expect(conjured.quality - qualityYesterday).to.equal(-2);
+    });
+
+});
+
+describe('Bckstage passes over 50 and concert over', function () {
 
     it('Bckstage passes with quality over 50 after sellIn', function() {
         // const item = new Item('Backstage passes', 10, 20);
@@ -185,6 +199,20 @@ describe('Bckstage passes over 50', function () {
         backstageObj.updateQuality();
 
         expect(bckstage.quality).to.equal(0);
+    });
+
+});
+
+describe('Bckstage passes over 50', function () {
+
+    it('Bckstage passes with quality over 50', function() {
+        // const item = new Item('Backstage passes', 10, 20);
+        const bckstage = new Item('Backstage passes to a TAFKAL80ETC concert', 5, 50)
+        const backstageObj = new GildedRose([bckstage])
+        let qualityYesterday:number = bckstage.quality;
+        backstageObj.updateQuality();
+
+        expect(bckstage.quality).to.equal(50);
     });
 
 });
