@@ -32,10 +32,13 @@ pt backstage passes:
 -- sellIn <= 5: +3
 -- sellIn < 0: qual = 0
 
-pt conjured:
-- sellIn > 0: -2
-- sellIn < 0: -4
-
 in rest:
 - sellIn > 0: -1
 - sellIn < 0: -2
+
+
+
+regula noua:
+  pt conjured:
+- sellIn > 0: -2
+- sellIn < 0: -4

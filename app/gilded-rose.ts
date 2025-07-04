@@ -43,20 +43,22 @@ export class GildedRose {
                 } else {
                     qualityRate *= 2
                 }
-                if (this.items[i].name === 'Conjured') {
-                    qualityRate *= 2;
-                }
+
             } else {
-                if (this.items[i].name === "Backstage passes to a TAFKAL80ETC concert")
+                if (this.items[i].name === "Backstage passes to a TAFKAL80ETC concert"){
                     if (this.items[i].sellIn <= 5) {
                         qualityRate *= 3;
                     } else if (this.items[i].sellIn <= 10) {
                         qualityRate *= 2;
-                    } else if (this.items[i].name === "Conjured") {
-                        qualityRate *= 2;
                     }
+                }
             }
-            if (this.items[i].quality + qualityRate <= 50){
+
+            if (this.items[i].name === "Conjured"){
+                qualityRate *= 2;
+            }
+
+            if (this.items[i].quality + qualityRate <= 50 && this.items[i].quality + qualityRate >= 0){
                 this.items[i].quality += qualityRate;
             }
 
@@ -66,17 +68,17 @@ export class GildedRose {
         return this.items;
     }
 }
-// let agedBrie = new Item('Aged Brie', 15, 20);
-// let sulfuras = new Item('Sulfuras, Hand of Ragnaros', 15, 20);
-// let backstagePasses = new Item('Backstage passes to a TAFKAL80ETC concert', 0, 20);
-// let conjured = new Item('Conjured', 15, 20);
-//
-// let gildedRoseObj = new GildedRose([agedBrie, sulfuras, backstagePasses, conjured]);
-// console.log(items);
-// for (let i = 0; i < 5; i++) {
-//     gildedRoseObj.updateQuality();
-// }
-// for (let i = 0; i < 4; i++){
-//     console.log(gildedRoseObj.items[i].name + " " + gildedRoseObj.items[i].sellIn + " " + gildedRoseObj.items[i].quality);
-// }
+let agedBrie = new Item('Aged Brie', 15, 20);
+let sulfuras = new Item('Sulfuras, Hand of Ragnaros', 15, 20);
+let backstagePasses = new Item('Backstage passes to a TAFKAL80ETC concert', 15, 20);
+let conjured = new Item('Conjured', 15, 20);
+
+let gildedRoseObj = new GildedRose([agedBrie, sulfuras, backstagePasses, conjured]);
+
+for (let i = 0; i < 5; i++) {
+    gildedRoseObj.updateQuality();
+}
+for (let i = 0; i < 4; i++){
+    console.log(gildedRoseObj.items[i].name + " " + gildedRoseObj.items[i].sellIn + " " + gildedRoseObj.items[i].quality);
+}
 
